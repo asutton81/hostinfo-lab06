@@ -32,7 +32,7 @@ jobs:
         run: docker build -t hostinfo-lab06:test .
 
       - name: Scan Docker image with Trivy
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'hostinfo-lab06:test'
           format: 'table'
