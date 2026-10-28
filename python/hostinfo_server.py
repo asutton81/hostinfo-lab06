@@ -22,7 +22,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
 def run_web_server(port):
     """Run a webserver the runs forever to respond with the host info"""
-    server = "0.0.0.0"
+    
+    # All-interface binding is intentional for container networking.
+    server = "0.0.0.0"  # nosec B104
+
     start_time = datetime.now()
     print(f"Server listening on http://{server}:{port}, started on {start_time}")
     httpd = HTTPServer(('', port), SimpleHTTPRequestHandler)
